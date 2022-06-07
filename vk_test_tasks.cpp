@@ -4,10 +4,10 @@ void process(FILE* f); // сигнатура зафиксирована
 
 void use_file(const char* name) 
 {
-	FILE* f = fopen(name, "w");
-	process(f); // использование f, при котором может быть выброшено исключение
+    FILE* f = fopen(name, "w");
+    process(f); // использование f, при котором может быть выброшено исключение
 
-	fclose(f);
+    fclose(f);
 }
 
 /* Ответ: Вариант исправления – обернуть вызов функции process в блок try-catch
@@ -18,24 +18,24 @@ void process(FILE* f); // сигнатура зафиксирована
 
 void use_file(const char* name) 
 {
-	FILE* f = fopen(name, "w");
+    FILE* f = fopen(name, "w");
 
-	if(!f) 
-	{
+    if(!f) 
+    {
         printf("File opening failed");
         return;
-	}
+    }
 
-	try
-	{
-		process(f); // использование f, при котором может быть выброшено исключение
-	}	
-	catch(…)
-	{
-		printf("Exception!\n");
-	}
+    try
+    {
+	process(f); // использование f, при котором может быть выброшено исключение
+    }	
+    catch(…)
+    {
+	printf("Exception!\n");
+    }
 
-	fclose(f);
+    fclose(f);
 }
 
 
@@ -48,7 +48,7 @@ void use_file(const char* name)
 template<class T>
 void manualRemoveDublicates(std::vector<T>& vecT)
 {
-	std::sort(vecT.begin(), vecT.end());// O(n*log(n))
+    std::sort(vecT.begin(), vecT.end());// O(n*log(n))
 
 	// O(n)
     int n = 0;
@@ -60,7 +60,7 @@ void manualRemoveDublicates(std::vector<T>& vecT)
         }
     }
 
-	vecT.resize(n+1);//сложность линейная относительно разности текущего размера и желаемого
+    vecT.resize(n+1);//сложность линейная относительно разности текущего размера и желаемого
 }
 
 
@@ -85,11 +85,11 @@ void autoRemoveDublicates(std::vector<T>& vecT)
 
 int main(int argc, char* argv[]) 
 {
-	printf("hello");
-	fork();
-	printf("\n");
+    printf("hello");
+    fork();
+    printf("\n");
 
-	return 0;
+    return 0;
 }
 
 /*Ответ: Программа напечатает слово "Hello" 2 раза.
